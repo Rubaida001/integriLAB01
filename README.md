@@ -1,11 +1,11 @@
-\textbf{IntegriLAB: A Research Integrity \& Collaboration Platform}
+## **IntegriLAB: A Research Integrity \& Collaboration Platform**
 
 IntegriLAB is a web-based system designed to promote 
-\textbf{transparency, reproducibility, and accountability} 
+**transparency, reproducibility, and accountability** 
 in scientific research.  
 It provides a unified environment where researchers can register projects, 
 collaborate with team members, and track all research artifacts with 
-\textbf{secure version control and audit trails}.
+**secure version control and audit trails**.
 
 This repository is a \textit{sanitized public version} of the IntegriLAB platform 
 prepared for scientific dissemination.  
@@ -14,33 +14,33 @@ have been removed.
 
 ---
 
-\section*{Key Features}
+## Key Features
 
-- \textbf{Structured Onboarding}  
+- **Structured Onboarding**  
   Institutes, Principal Investigators (PIs), and project members can be 
   registered through a guided workflow.
 
-- \textbf{Transparent Research Tracking}  
+- **Transparent Research Tracking**  
   Every version of documents, datasets, and analyses is securely logged, 
   making all changes fully traceable.
 
-- \textbf{Integration With Research Tools}  
+- **Integration With Research Tools**  
   IntegriLAB is designed to interface with tools such as Overleaf, GitHub, 
   DataLad, and LabTrace.
 
-- \textbf{Role-Based Access Control (RBAC)}  
+- **Role-Based Access Control (RBAC)**  
   Access is regulated through predefined roles:  
   \textit{Administrator, Principal Investigator, Member}.
 
-- \textbf{Secure Architecture}  
+- **Secure Architecture**  
   Django-based backend, encrypted communication, and AWS deployment 
   via Elastic Beanstalk.
 
 ---
 
- \section*{Technology Stack}
+ ## Technology Stack
 
-| \textbf{Layer} | \textbf{Technologies} |
+| **Layer** | **Technologies** |
 |---------------|------------------------|
 | Frontend | Bootstrap, JavaScript |
 | Backend | Django (Python) |
@@ -50,7 +50,7 @@ have been removed.
 
 ---
 
-## \section*{Repository Contents}
+## Repository Contents
 
 This public repository includes:
 
@@ -58,7 +58,7 @@ This public repository includes:
 - Sample configuration templates
 - Minimal example workflows
 
-It \textbf{excludes}:
+It **excludes**:
 
 - Credentials or API keys  
 - Institution-specific data  
@@ -67,25 +67,25 @@ It \textbf{excludes}:
 
 ---
 
-## \section*{Local Installation}
-\subsection*{1. Clone the Repository}
+## Local Installation
+#### 1. Clone the Repository
 ```bash
 git clone https://github.com/Rubaida001/integriLAB-app.git
 cd integriLAB-public
 
-\subsection*{2. Install Dependencies}
+#### 2. Install Dependencies
 pip install -r requirements.txt
 
 
-\subsection*{3. Run Database Migrations}
+#### 3. Run Database Migrations
 python manage.py migrate
 
 
-\subsection*{4. Start the Development Server}
+#### 4. Start the Development Server
 python manage.py runserver
 
-\section*{Notes on the Public Version}
-This repository is intended for \textbf{scientific review, demonstration, and reproducibility documentation}.
+## Notes on the Public Version
+This repository is intended for **scientific review, demonstration, and reproducibility documentation**.
 The complete production system including infrastructure configuration,
 deployments, user data, and institutional settings—remains private.
 
