@@ -1,0 +1,9 @@
+# Ignore static files in language stats
+static/* linguist-vendored
+media/* linguist-vendored
+
+# Templates are HTML, not Python
+templates/* linguist-detectable=true
+
+# Treat analytics JSON as documentation
+*.json linguist-documentation
