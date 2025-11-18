@@ -4,7 +4,6 @@ log/*
 /Notebook/settings/development.py
 templates/base_nice.html
 templates/sidebar_nice.html
-staticfiles/*
 labTrace_sdk/labtrace/.DS_Store
 management/__pycache__/admin.cpython-312.pyc
 management/__pycache__/forms.cpython-312.pyc
