@@ -83,6 +83,7 @@ python manage.py migrate
 
 #### 4. Start the Development Server
 python manage.py runserver
+```
 
 ## Notes on the Public Version
 This repository is intended for scientific review, demonstration, and reproducibility documentation.
