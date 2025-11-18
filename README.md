@@ -1,6 +1,6 @@
 ## **IntegriLAB: A Research Integrity \& Collaboration Platform**
 
-IntegriLAB is a web-based system designed to promote 
+[IntegriLAB](https://www.integrilab.org/) is a web-based system designed to promote 
 **transparency, reproducibility, and accountability** 
 in scientific research.  
 It provides a unified environment where researchers can register projects, 
