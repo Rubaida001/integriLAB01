@@ -1,4 +1,4 @@
-#IntegriLAB: A Research Integrity \& Collaboration Platform
+\textbf{IntegriLAB: A Research Integrity \& Collaboration Platform}
 
 IntegriLAB is a web-based system designed to promote 
 \textbf{transparency, reproducibility, and accountability} 
@@ -14,7 +14,7 @@ have been removed.
 
 ---
 
-## \section*{Key Features}
+\section*{Key Features}
 
 - \textbf{Structured Onboarding}  
   Institutes, Principal Investigators (PIs), and project members can be 
@@ -38,7 +38,7 @@ have been removed.
 
 ---
 
-## \section*{Technology Stack}
+ \section*{Technology Stack}
 
 | \textbf{Layer} | \textbf{Technologies} |
 |---------------|------------------------|
