@@ -70,8 +70,8 @@ It **excludes**:
 ## Local Installation
 #### 1. Clone the Repository
 ```bash
-git clone https://github.com/Rubaida001/integriLAB-app.git
-cd integriLAB-public
+git clone https://github.com/Rubaida001/integriLAB01.git
+cd integriLAB01
 
 #### 2. Install Dependencies
 pip install -r requirements.txt
