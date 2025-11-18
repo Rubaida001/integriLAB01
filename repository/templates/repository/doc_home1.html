@@ -1,0 +1,177 @@
+{% extends 'sidebar.html' %}
+{% load static %}
+
+<title> {% block title %} Doc Repository Connection {% endblock %}</title>
+
+{% block script %}
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'repository/css/new_btn_repo.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'repository/css/doc_home.css' %}" media="screen">
+
+
+
+
+    <script type="text/javascript">
+  $(document).ready(function () {
+    $('#projectSelect').change(function () {
+      var projectID = $(this).val();
+
+      // Clear the document dropdown
+      $('#documentSelect').empty().append('<option value="">Select a document</option>');
+
+      if (projectID) {
+        $.ajax({
+          url: "{% url 'repository:get_documents' %}",
+          data: {
+            'project_id': projectID
+          },
+          success: function (data) {
+            $('#documentSelect').prop('disabled', false);
+            $.each(data.documents, function (index, document) {
+              $('#documentSelect').append('<option value="' + document.doc_project_id + '">' + document.document_name + '</option>');
+            });
+          }
+        });
+      } else {
+        $('#documentSelect').prop('disabled', true);
+      }
+    });
+  });
+</script>
+
+{% endblock %}
+
+
+{% block maincontent %}
+
+    <div class="u-align-left u-container-style u-layout-cell u-shape-rectangle u-size-49 u-layout-cell-2">
+              <div class="u-container-layout u-container-layout-7">
+                <h4 class=" u-text u-text-6">Doc Repository Feed</h4>
+                  <!--<a class=" u-palette-1-dark-1 u-btn-3" ><i class="fa-solid fa-file"></i> New Document</a>-->
+                    <!-- Dropdown List -->
+                      <div class="dropdown">
+                          <button class="dropbtn u-palette-1-dark-1"><i class="fa-solid fa-plus"></i> New <i class="fa-solid fa-caret-down"></i></button>
+                          <div class="dropdown-content">
+                              <a href="{% url 'repository:add_doc_repo' %}">Create New Document</a>
+                              <a href="#" data-bs-toggle="modal" data-bs-target="#projectModal">Commit Changes</a>
+                          </div>
+                      </div>
+                  <!--u-button-style-->
+                  <div class="u-expanded-width-xs u-list u-list-2">
+                  {% if messages %}
+                              <div id="message_container" class="u-align-left u-form-group u-form-submit u-label-none">
+                                  {% for message in messages %}
+                                      <p class="success alert-warning" style="text-align:center; font-size: medium; background-color: #62C584"> {{ message }}</p>
+                                  {% endfor %}
+                              </div>
+                          {% endif %}
+
+                    <table border="1">
+        <thead>
+            <tr>
+                <th>Author</th>
+                <th>Date</th>
+                <th>Message</th>
+                <th>Tag</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for repo in repo_details %}
+            <tr>
+                <td>{{ repo.committed_by }}</td>
+                <td>{{ repo.committed_date }}</td>
+                <td>{{ repo.committed_msg }}</td>
+                <td><a href="{{ repo.committed_url }}">{{ repo.committed_hash }}</a></td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No data available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+                </div>
+
+               <!-- <div class="u-expanded-width-xs u-list u-list-2">
+                  <div class="u-repeater u-repeater-2">
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-valign-top-xl u-container-layout-8"><span class="u-file-icon u-icon u-icon-circle u-palette-3-light-2 u-icon-7"><img src="{% static 'repository/images/4926624-89fd50f9.png' %}" alt=""></span>
+                        <h6 class="u-text u-text-9">Project1 | 24 April 2024, 1 pm</h6> Project1 | 24 April 2024, 1 pm
+                        <p class="u-text u-small-text u-text-variant u-text-10">User1 changed image dimension in preProcessing.py</p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-valign-top-xl u-container-layout-9"><span class="u-file-icon u-icon u-icon-circle u-palette-3-light-2 u-icon-8"><img src="{% static 'repository/images/4926624-89fd50f9.png' %}" alt=""></span>
+                        <h6 class="u-text u-text-9">Sample Headline</h6>
+                        <p class="u-text u-small-text u-text-variant u-text-10">User 2 harmonized image with HACA3</p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-valign-top-xl u-container-layout-10"><span class="u-file-icon u-icon u-icon-circle u-palette-3-light-2 u-icon-9"><img src="{% static 'repository/images/4926624-89fd50f9.png' %}" alt=""></span>
+                        <h6 class="u-text u-text-9">Sample Headline</h6>
+                        <p class="u-text u-small-text u-text-variant u-text-10">User1 added new configuration file</p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-valign-top-xl u-container-layout-11"><span class="u-file-icon u-icon u-icon-circle u-palette-3-light-2 u-icon-10"><img src="{% static 'repository/images/4926624-89fd50f9.png' %}" alt=""></span>
+                        <h6 class="u-text u-text-9">Sample Headline</h6>
+                        <p class="u-text u-small-text u-text-variant u-text-10">User1 added new configuration file</p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-valign-top-xl u-container-layout-12"><span class="u-file-icon u-icon u-icon-circle u-palette-3-light-2 u-icon-11"><img src="{% static 'repository/images/4926624-89fd50f9.png' %}" alt=""></span>
+                        <h6 class="u-text u-text-9">Sample Headline</h6>
+                        <p class="u-text u-small-text u-text-variant u-text-10">User1 added new configuration file</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>-->
+              </div>
+            </div>
+
+
+   <!-- Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="projectModalLabel">Select Project and Document</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="selectionForm" method="POST" action="{% url 'repository:process_doc_selection' %}">
+          {% csrf_token %}
+
+          <!-- Project Selection Dropdown -->
+          <div class="mb-3">
+            <!--<label for="projectSelect" class="form-label">Select Project</label>-->
+            <select class="form-select" id="projectSelect" name="project">
+              <option value="">Select a project</option>
+              {% for project in projects %}
+                <option value="{{ project.project_id }}">{{ project.project_name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <!-- Document Selection Dropdown -->
+          <div class="mb-3">
+            <!--<label for="documentSelect" class="form-label">Select Document</label>-->
+            <select class="form-select" id="documentSelect" name="document" disabled>
+              <option value="">Select a document</option>
+            </select>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" form="selectionForm" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

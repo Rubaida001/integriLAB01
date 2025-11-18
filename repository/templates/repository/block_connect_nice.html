@@ -1,0 +1,191 @@
+{% extends 'sidebar.html' %}
+{% load static %}
+
+ {% block title %} {% endblock %}
+{% block script %}
+    <link rel="stylesheet" href="{% static 'repository/css/doc-connect.css' %}" media="screen">
+        <!--check base.html.to run this script, this script need to be commented <script class="u-script" type="text/javascript" src="{% static 'management/js/nicepage-copy.js' %}" defer=""></script>-->
+{% endblock %}
+{% block maincontent %}
+
+    <div class="u-container-style u-layout-cell u-size-49 u-layout-cell-2">
+              <div class="u-container-layout u-container-layout-7">
+                <div class="u-container-style u-group u-palette-5-light-3 u-group-1">
+                  <div class="u-container-layout u-container-layout-8">
+                    <h4 class="u-align-center u-text u-text-6">Connect To LabTrace<br>
+                    </h4>
+                    <div class="u-form u-form-1">
+                      <form method="post" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" name="form" style="padding: 10px;" action="{% url 'repository:block_connect' %}">
+                      {% csrf_token %}
+                        <div class="u-form-group u-form-name u-label-none">
+                            <input type="text" name="{{ form.block_username.name }}" value="{{ form.block_username.value|default_if_none:'' }}" placeholder="{{ form.block_username.field.widget.attrs.placeholder }}" class="u-input u-input-rectangle form-control u-text-grey-40" />
+                        </div>
+                        <div class="u-form-group u-form-name u-label-none u-form-group-2">
+                             <input type="password" name="{{ form.block_password.name }}" value="{{ form.block_password.value|default_if_none:'' }}" placeholder="{{ form.block_password.field.widget.attrs.placeholder }}" class="u-input u-input-rectangle form-control u-text-grey-40" />
+                        </div>
+                        <div class="u-align-center u-form-group u-form-submit u-label-none">
+                          <button type="submit" class="u-border-none u-btn u-btn-submit u-button-style u-palette-1-dark-1 u-btn-3">Connect</button>
+                        </div>
+                        <!--<div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+                        <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+                        <input type="hidden" value="" name="recaptchaResponse">
+                        <input type="hidden" name="formServices" value="455447bb-edba-9a85-804a-d0904c74e284">-->
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+{% endblock %}
+
+<!--
+
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>About</title>
+    <link rel="stylesheet" href="{% static 'repository/css/nicepage.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'repository/css/home.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'repository/js/jquery-1.9.1.min.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'repository/js/nicepage.js' %}" defer=""></script>
+    <meta name="generator" content="Nicepage 6.11.13, nicepage.com">
+    <meta name="referrer" content="origin">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "WebSite6279795"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="About">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en"><header class="u-header u-palette-5-dark-2" id="sec-5989" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">
+      <div class="u-clearfix u-sheet u-valign-right u-sheet-1">
+        <div class="u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-container-align-right u-container-style u-custom-item u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <p class="u-align-right u-custom-item u-text u-text-default u-text-1">
+                  <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-white u-btn-1" href="{% url 'management:new_member' %}" title="-"><span class="u-file-icon u-icon u-text-white u-icon-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><img src="{% static 'repository/images/4202259-1238073c.png' %}" alt=""></span> Add Member<br>
+                  </a>
+                </p>
+              </div>
+            </div>
+            <div class="u-container-align-right u-container-style u-custom-item u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <a class="u-align-right u-custom-item u-text u-text-default u-text-2 u-text-white" href="{% url 'management:add_project' %}"><span class="u-file-icon u-icon u-text-white u-icon-2" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><img src="{% static 'repository/images/8191584-124147ad.png' %}" alt=""></span> Add Project<br>
+                </a>
+              </div>
+            </div>
+
+            <div class="u-align-justify-lg u-align-justify-md u-align-justify-sm u-align-justify-xs u-container-align-right u-container-style u-custom-item u-list-item u-repeater-item" data-href="#">
+              <div class="dropdown u-container-layout u-similar-container u-container-layout-3">
+                <p class="u-align-right u-custom-item u-text u-text-default u-text-3">
+                    <span class="dropbtn u-file-icon u-icon u-text-white u-icon-3" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">
+                    <img src="{% static 'repository/images/1077114-9c11fe00.png'%}" alt=""></span> Jon Doe
+                </p>
+                  <div class="dropdown-content">
+                      <a href="{% url 'management:login' %}">Logout</a>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div></header>
+
+  <section class="u-clearfix u-section-4" id="carousel_b136">
+      <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div class="u-container-style u-layout-cell u-palette-5-dark-2 u-size-11 u-layout-cell-1">
+              <div class="u-container-layout u-container-layout-1">
+                <div class="u-list u-list-1">
+                  <div class="u-repeater u-repeater-1">
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-container-layout-2">
+                        <p class="u-text u-text-default u-text-1"><a class="u-text-white" href="{% url 'management:home' %}"><span class="u-file-icon u-icon u-icon-1"><img src="{% static 'repository/images/1946436-dedc4075.png'%}" alt=""></span> Home</a>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-container-layout-3">
+                          <p class="u-text u-text-default u-text-2"><a class="u-active-none u-border-none u-none u-text-white" href="{% url 'management:home' %}"><span class="u-file-icon u-icon u-icon-2"><img src="{% static 'repository/images/4926624-e1b588b4.png'%}" alt=""></span> GitHub </a>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-container-layout-4">
+                          <p class="u-text u-text-default u-text-3"><a class="u-active-none u-border-none u-none u-text-white" href="{% url 'management:home' %}"><span class="u-file-icon u-icon u-icon-3"><img src="{% static 'repository/images/5806342-8ca6aa7a.png'%}" alt=""></span> OverLeaf </a>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-container-layout-5">
+                          <p class="u-text u-text-default u-text-4"><a class="u-active-none u-border-none u-none u-text-white" href="{% url 'management:home' %}"><span class="u-file-icon u-icon u-text-white"><img src="{% static 'repository/images/9850812-b991fa4b.png'%}" alt=""></span> Datalad </a>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-container-layout-6">
+                          <p class="u-text u-text-default u-text-5"><a class="u-active-none u-border-none u-none u-text-white" href="{% url 'management:home' %}"><span class="u-file-icon u-icon u-icon-5"><img src="{% static 'repository/images/483408-9109b922.png'%}" alt=""></span> LabTrace </a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="u-container-style u-layout-cell u-size-49 u-layout-cell-2">
+              <div class="u-container-layout u-valign-middle u-container-layout-7">
+                <div class="u-container-align-center u-container-style u-group u-palette-5-light-3 u-group-1">
+                  <div class="u-container-layout u-container-layout-8">
+                    <h3 class="u-align-center u-text u-text-default u-text-6">Connect Overleaf<br>
+                    </h3>
+                    <div class="u-form u-form-1">
+                      <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form-2" style="padding: 10px;">
+                                  <div class="u-form-group u-form-name u-label-none">
+                                    <label for="name-574d" class="u-label">Name</label>
+                                    <input type="text" placeholder="Username" id="name-574d" name="username" class="u-input u-input-rectangle u-text-body-color" required="">
+                                  </div>
+                                  <div class="u-form-group u-form-name u-label-none u-form-group-2">
+                                    <label for="name-ff02" class="u-label">Password</label>
+                                    <input type="text" placeholder="Password" id="name-ff02" name="password" class="u-input u-input-rectangle u-text-body-color" required="">
+                                  </div>
+                                  <div class="u-form-date u-form-group u-label-none u-form-group-3">
+                                    <label for="name-482a" class="u-label">Project Name</label>
+                                    <input type="text" placeholder="Project Name" id="name-482a" name="project-name" class="u-input u-input-rectangle u-text-body-color" required="required">
+                                  </div>
+                                  <div class="u-align-center u-form-group u-form-submit u-label-none">
+                                    <a href="" class="u-border-none u-btn u-btn-submit u-button-style u-palette-1-dark-1 u-btn-1">Sign in</a>
+                                    <input type="submit" value="submit" class="u-form-control-hidden">
+                                  </div>
+                                  <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+                                  <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+                                  <input type="hidden" value="" name="recaptchaResponse">
+                                  <input type="hidden" name="formServices" value="3fce8542-6554-51e0-3fda-b5cefe14970c">
+                                </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <footer class="u-align-center u-clearfix u-footer u-palette-5-dark-2 u-footer" id="sec-0bd2"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">E-LabNoteBook || 2024</p>
+      </div></footer>
+
+</body></html>-->

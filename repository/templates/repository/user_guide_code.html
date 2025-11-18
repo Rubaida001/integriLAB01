@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+
+ {% block title %} {% endblock %}
+{% block script %}
+{% endblock %}
+{% block maincontent %}
+<!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">User Guide</h1>
+                    </div>
+
+
+                    <div class="row">
+                    <div class="col-lg-12">
+
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary"> <a class="text-primary" href="{% url 'repository:user_guide' %}">User Guide</a> > Document Repository: GitHub</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p>This guide will help you set up GitHub, create and manage a code repository,
+                                        and integrate it with IntegriLAB to efficiently track and update your projects.
+                                    </p>
+                                    <b>Step 1: Create a GitHub Account</b>
+
+                                    <ul>
+                                        <li>
+                                            Go to the <a class="text-primary" href="https://github.com/">GitHub website</a> and click <b>Sign Up</b>.
+                                        </li>
+                                        <li>
+                                            Fill in your details and follow the instructions to set up your GitHub account.
+                                        </li>
+                                    </ul>
+                                    <hr>
+
+
+                                    <b>Step 2: Create New Project and Connect Locally</b>
+                                    <ul>
+                                        <li>
+                                            Log in to your GitHub account and create Repository.
+                                        </li>
+                                        <li>
+                                            Clone your GitHub repository to your local machine:
+                                                    <div class="col-lg-6">
+                                                        <div class="text-sm navbar navbar-light bg-light">git clone https://github.com/&lt;username&gt;/&lt; repository_name&gt;.git</div>
+                                                    </div>
+                                        </li>
+                                        <li>
+                                            Navigate to the cloned repository directory:
+                                            <div class="col-lg-6">
+                                                        <div class="text-sm navbar navbar-light bg-light">cd &lt;repository_name&gt; </div>
+                                                    </div>
+                                        </li>
+                                        <li>Add or modify your project files in the local repository.
+                                        </li>
+                                    </ul>
+                                    <hr>
+
+                                   <b>Step 3: Commit Changes</b>
+                                    <ul>
+                                        <li>
+                                            Stage your changes:
+                                            <div class="col-lg-6">
+                                                <div class="text-sm navbar navbar-light bg-light">git add .</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            Commit the changes with a message:
+                                            <div class="col-lg-6">
+                                                <div class="text-sm navbar navbar-light bg-light">git commit -m "Initial commit"</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            Push the changes to GitHub:
+                                            <div class="col-lg-6">
+                                                <div class="text-sm navbar navbar-light bg-light">git push origin main</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <hr>
+
+                                    <b>Step 4: Connect IntegriLAB with GitHub</b>
+                                    <ul>
+                                        <li>
+                                            Log in to your IntegriLAB account and select <b>Code</b> option.
+                                        </li>
+                                        <li>
+                                            Navigate to the <b>Setup Connection</b> section in the dashboard.
+                                        </li>
+                                        <li>
+                                            Enter your username, password/token when prompted.
+                                        </li>
+                                        <li>
+                                            Once authenticated, your DataLad repository will be linked to IntegriLAB.
+                                        </li>
+                                    </ul>
+                                    <hr>
+
+
+                                    <b>Step 5: Add the GitHub Repository to IntegriLAB</b>
+
+                                    <ul>
+                                        <li>
+                                            In the <b>Code</b> section, choose the <b>Add New Repository</b> option.
+                                        </li>
+                                        <li>
+                                            Associate the GitHub code with the corresponding project in IntegriLAB by using repository name.
+                                        </li>
+                                    </ul>
+                                    <hr>
+
+
+
+                                    <b>Step 6: Update and Commit Changes</b>
+                                    <ul>
+                                        <li>
+                                            When updates are made to the code repository, commit and push the changes locally:
+                                            <div class="col-lg-6">
+                                                <div class="text-sm navbar navbar-light bg-light">git add . <br>
+                                                    git commit -m "Updated code" <br>
+                                                    git push origin main</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            To save updates:
+                                            <ol>
+                                                <li>Go to the <b>Code -> Home</b> repository and click on <b>Commit Changes</b> in IntegriLAB.</li>
+                                                <li>Select the linked project and the related code repository to synchronize the latest version with IntegriLAB.</li>
+                                            </ol>
+                                        </li>
+                                    </ul>
+                                    Repeat this step whenever significant updates are made to ensure all changes are documented.
+                                    <hr>
+                                </div>
+                            </div>
+
+                    </div>
+                    </div>
+{% endblock %}
+
+

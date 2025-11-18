@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {% endblock %}
+
+{% block script %}
+    <script src="{% static 'bootstrap/vendor/jquery/jquery.min.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            document.getElementById("folderUpload").addEventListener("change", function () {
+                let folderName = this.files.length > 0 ? this.files[0].webkitRelativePath.split("/")[0] : "No folder selected";
+                document.getElementById("fileName").value = folderName;
+                // Check if folder likely contains a .git folder
+                if (!folderName.includes("log")) {
+                    alert("⚠️ Warning: Git logs are stored in a hidden '.git' folder. Make sure you have enabled 'Show Hidden Files' in your file explorer. See the User Guide for more details.");
+                    this.value = "";
+                    document.getElementById("fileName").value = "No folder selected";
+                }
+            });
+            $('#projectSelect').change(function () {
+                var projectID = $(this).val();
+                // Clear the code dropdown
+                $('#datarepoSelect').empty().append('<option value="">Select a repository</option>');
+
+                if (projectID) {
+                    $.ajax({
+                        url: "{% url 'repository:get_datarepo' %}",
+                        data: {
+                            'project_id': projectID
+                        },
+                        success: function (data) {
+                            $('#datarepoSelect').prop('disabled', false);
+                            $.each(data.datarepo, function (index, data) {
+                                $('#datarepoSelect').append('<option value="' + data.data_project_id + '">' + data.data_repo_path + '</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('#datarepoSelect').prop('disabled', true);
+                }
+            });
+        });
+    </script>
+{% endblock %}
+{% block maincontent %}
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-xl-5 col-lg-6 col-md-9">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Commit To Data Repository</h1>
+                                    <hr>
+                                </div>
+                                <form class="user" action="{% url 'repository:process_data_selection' %}" method="post"
+                                      enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <select class="form-select form-control" id="projectSelect" name="project"
+                                                required>
+                                            <option value="">Select a project</option>
+                                            {% for project in projects %}
+                                                <option value="{{ project.project_id }}">{{ project.project_name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="form-group ">
+                                        <select class="form-select form-control" id="datarepoSelect" name="datarepo"
+                                                required
+                                                disabled>
+                                            <option value="">Select a repository</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <!--<label for="folderUpload">Upload Git Log Folder</label>-->
+                                        <!--<input type="file" class="form-control-file" id="folderUpload" name="folder"
+                                               required
+                                               multiple webkitdirectory>-->
+                                    </div>
+                                    <div class="form-group">
+                                        <!--<label for="folderUpload">Upload Git Log Folder</label>-->
+
+                                        <!-- Hidden File Input -->
+                                        <input type="file" id="folderUpload" name="folder" hidden multiple required
+                                               webkitdirectory>
+
+                                        <!-- Custom Button & Text Field -->
+                                        <div class="input-group">
+                                            <button type="button" class="btn btn-sm btn-dark"
+                                                    onclick="document.getElementById('folderUpload').click();"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="top"
+                                                    title="Click to select a folder containing Git logs">
+                                                Select Folder
+                                            </button>
+                                            <input type="text" class="form-control" id="fileName" required
+                                                   placeholder="No folder selected" readonly>
+                                        </div>
+                                        <small class="text-muted text-wrap text-sm-left">Select <b>.git/logs</b>
+                                            directory. Enable "Show Hidden Files" to view <b>.git</b>. [<a
+                                                    class="text-primary"
+                                                    href="{% url 'repository:user_guide_data' %}#dataTable"
+                                                    target="_blank">Learn more</a>]
+                                        </small>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-block">Commit</button>
+                                    <hr>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+

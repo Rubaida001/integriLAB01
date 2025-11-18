@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block script %}
+    <!-- Page level plugins -->
+    <script src="{% static 'bootstrap/vendor/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'bootstrap/vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+    <!-- Page level custom scripts -->
+    <script src="{% static 'bootstrap/js/demo/datatables-demo.js' %}"></script>
+    <!-- Custom styles for this page -->
+    <link href="{% static 'bootstrap/vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'repository/css/messages.css' %}">
+{% endblock %}
+
+{% block heading %}
+    <h1 class="h3 mb-2 text-gray-800">New Members</h1>
+    <p class="mb-4">See the list of new members</p>
+{% endblock %}
+
+
+{% block maincontent %}
+    <div class="card shadow mb-4">
+
+        <div class="card-body">
+            <div class="table-responsive">
+                {% if messages %}
+                    <div id="message_container" class="u-align-left u-form-group u-form-submit u-label-none">
+                        {% for message in messages %}
+                            <p class="{% if message.tags %}{{ message.tags }}{% endif %}"> {{ message }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Full Name</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Date</th>
+                        <th>Full Name</th>
+                        <th>Actions</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for item in new_members %}
+                        <tr>
+                            <td>{{ item.date_joined }}</td>
+                            <td>{{ item.full_name }}</td>
+                            <td><a href="{% url 'management:add_member' item.pk %}"
+                                   class="btn btn-success btn-circle btn-sm">
+                                <i class="fas fa-check"></i></a>
+
+                                <a href="{% url 'management:delete_member' item.pk %}"
+                                   class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="4">No new member.</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+

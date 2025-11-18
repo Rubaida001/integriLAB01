@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {% endblock %}
+{% block script %}
+{% endblock %}
+{% block maincontent %}
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">User Guide</h1>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary"><a class="text-primary"
+                                                                     href="{% url 'repository:user_guide' %}">User
+                        Guide</a> > Document Repository: DataLad</h6>
+                </div>
+                <div class="card-body">
+                    <p>This guide will walk you through setting up DataLad, creating and managing datasets,
+                        and integrating them with IntegriLAB for streamlined tracking and updates.</p>
+                    <b>Step 1: Download and Install DataLad</b>
+
+                    <ul>
+                        <li>
+                            Visit the <a class="text-primary"
+                                         href="https://handbook.datalad.org/en/0.12/intro/installation.html">DataLad
+                            website</a> or install via the command line:
+                            <ol>
+                                <li>For Linux/macOS/Windows:</li>
+                                <div class="col-lg-6">
+                                    <div class="text-sm navbar navbar-light bg-light">pip install datalad</div>
+                                </div>
+                            </ol>
+                        </li>
+                        <li>
+                            Ensure Git and Git-annex are installed as DataLad dependencies.
+                        </li>
+                    </ul>
+                    <hr>
+
+
+                    <b>Step 2: Create a New Dataset Using DataLad</b>
+                    <ul>
+                        <li>
+                            Open your terminal and navigate to the directory where you want to create the dataset.
+                        </li>
+                        <li>
+                            Run the following command to create a new DataLad dataset:
+                            <ol>
+                                <li>For Linux/macOS/Windows:</li>
+                                <div class="col-lg-6">
+                                    <div class="text-sm navbar navbar-light bg-light">datalad create my_dataset</div>
+                                </div>
+                            </ol>
+                        </li>
+                        <li>
+                            This will initialize a dataset named <i>my_dataset</i>.
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <b>Step 3: Commit Changes to the Dataset</b>
+                    <ul>
+                        <li>
+                            Add files to your dataset or make any changes.
+                        </li>
+                        <li>
+                            Commit the changes with a meaningful message:
+                            <div class="col-lg-6">
+                                <div class="text-sm navbar navbar-light bg-light">datalad save -m "Added initial dataset
+                                    files"
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <hr>
+                    <b>Step 4: Connect IntegriLAB with DataLad</b>
+                    <ul>
+                        <li>
+                            Log in to your IntegriLAB account and select <b>Data</b> option.
+                        </li>
+                        <li>
+                            Navigate to the <b>Setup Connection</b> section in the dashboard.
+                        </li>
+                        <li>
+                            Enter your username, password, and server name when prompted.
+                        </li>
+                        <li>
+                            Once authenticated, your DataLad repository will be linked to IntegriLAB.
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <b>Step 5: Add the DataLad Dataset to a Project</b>
+
+                    <ul>
+                        <li>
+                            In the <b>Data</b> section, choose the <b>Add New Repository</b> option.
+                        </li>
+                        <li>
+                            Associate the dataset with the corresponding project in IntegriLAB by using the path of your
+                            DataLad dataset.
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <b>Step 6: Update and Commit Changes</b>
+                    <ul>
+                        <li>
+                            When there are updates to the dataset (e.g., new files or modifications), follow these
+                            steps:
+                        </li>
+                        <li>
+                            To save updates:
+                            <ol>
+                                <li>Go to the <b>Data -> Home</b> section in IntegriLAB and click on <b>Commit
+                                    Changes</b>.
+                                </li>
+                                <li>Select the linked project and the related dataset</li>
+                                to synchronize the latest version of the data with IntegriLAB.
+                                <li>Click the <b>Select Folder</b> button, navigate to your dataset’s Git repository,
+                                    enable hidden files, and select the .git/logs folder.
+                                </li>
+                                <br>
+                                <table class="table table-bordered table-info" id="dataTable">
+                                    <thead>
+                                    <tr>
+                                        <th>Operating System</th>
+                                        <th>Shortcut to Show Hidden Files</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Windows</td>
+                                        <td>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>.</kbd> in File Explorer
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mac</td>
+                                        <td>Press <kbd>Command (⌘)</kbd> + <kbd>Shift</kbd> + <kbd>.</kbd> in Finder
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Linux (Ubuntu, GNOME, etc.)</td>
+                                        <td>Press <kbd>Ctrl</kbd> + <kbd>H</kbd> in File Manager</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </ol>
+                        </li>
+                    </ul>
+                    Repeat this step whenever significant updates are made to ensure all changes are documented.
+                    <hr>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+

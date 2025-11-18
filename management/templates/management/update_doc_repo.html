@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title>Profile</title> {% endblock %}
+{% block script %}
+    <link rel="stylesheet" href="{% static 'repository/css/messages.css' %}"></link>
+{% endblock %}
+{% block maincontent %}
+    <div class="row justify-content-center">
+        <div class="col-xl-5 col-lg-6 col-md-9">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400" id="topbar-icon"></i></h1>
+                                    <h4>Update Document Repository</h4>
+                                    <hr>
+                                    {% if messages %}
+                                        <div id="message_container"
+                                             class="u-align-left u-form-group u-form-submit u-label-none">
+                                            {% for message in messages %}
+                                                <p class="
+                                                        {% if message.tags %}{{ message.tags }}{% endif %}"> {{ message }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <form class="user" action="{% url 'management:update_doc_repo' %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user" required
+                                               name="{{ form.repo_username.name }}"
+                                               id="repoUserInput"
+                                               value="{{ form.repo_username.value|default_if_none:'' }}"
+                                               placeholder="{{ form.repo_username.field.widget.attrs.placeholder }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user" required
+                                               name="{{ form.git_token.name }}"
+                                               value="{{ form.git_token.value|default_if_none:'' }}"
+                                               id="exampleInputPassword"
+                                               placeholder="{{ form.git_token.field.widget.attrs.placeholder }}">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-user btn-block">Edit</button>
+
+                                    <hr>
+                                </form>
+                                <div class="text-center">
+                                    <a href="{% url 'management:update_repo' %}"
+                                       class="btn btn-secondary btn-circle btn-sm">
+                                        <i class="fas fa-arrow-alt-circle-left"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
+
+

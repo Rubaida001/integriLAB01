@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block script %}
+    <!-- Page level plugins -->
+    <script src="{% static 'bootstrap/vendor/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'bootstrap/vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+    <!-- Page level custom scripts -->
+    <script src="{% static 'bootstrap/js/demo/datatables-demo.js' %}"></script>
+    <!-- Custom styles for this page -->
+    <link href="{% static 'bootstrap/vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'repository/css/messages.css' %}"></link>
+
+{% endblock %}
+
+{% block heading %}
+    <h1 class="h3 mb-2 text-gray-800">Projects</h1>
+    <!--<p class="mb-4">See changes made in last 90 days</p>-->
+{% endblock %}
+
+
+{% block maincontent %}
+    <!--<div class="row">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                ProjectName
+                            </div>
+                            <div class="small mb-0 font-weight-light text-gray-800">Dan Craine</div>
+                            <div class="small mb-0 font-weight-light text-gray-800">End Date: 25 FEB 2027</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-folder fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="row">
+    {% for project in projects %}
+        <div class="col-xl-3 col-md-6 mb-4">
+                    <a href="{% url 'management:feed' project.project_id %}" style="text-decoration: none;">
+
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {{ project.project_name }}
+                            </div>
+                            <div class="small mb-0 font-weight-light text-gray-800">
+                                {{ project.pi }}
+                            </div>
+                            <div class="small mb-0 font-weight-light text-gray-800">
+                                End Date: {{ project.end_date|date:"d M Y" }}
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                             <i class="fas fa-folder fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    </a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+

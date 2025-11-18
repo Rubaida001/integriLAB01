@@ -1,0 +1,88 @@
+{% extends 'base_login.html' %}
+{% load static %}
+
+    {% block script %}
+        <link rel="stylesheet" href="{% static 'management/css/register.css' %}" media="screen">
+    {% endblock %}
+  {% block logincontent %}
+      <section class="u-clearfix u-container-align-center u-grey-10 u-section-1" id="carousel_2cbd">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-22 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+              <div class="u-container-layout u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-2">
+                  <h3 class="u-align-left "><span style="font-size: 2.5rem;color: #364c7e!important;"><b>IntegriLAB</b></span></h3>
+                  <hr>
+                  <h3 class="u-align-left " style="font-size: 1.8rem;">Terms and Conditions</h3> <!--u-text u-text-default u-text-1-->
+                  <div class="custom-expanded u-expanded-width-lg u-expanded-width-xl u-form u-form-1">
+                      <div class="card-body">
+            <p>
+                Welcome to IntegriLAB! By registering or using this platform, you agree to the following terms and conditions.
+                These terms are designed to ensure compliance, research integrity, and the proper use of our services.
+            </p>
+
+            <h4>1. General Usage</h4>
+            <ul>
+                <li>IntegriLAB tracks project details from GitHub (for code), Overleaf (for documents), and Datalad (for datasets).</li>
+                <li>Users are responsible for ensuring the accuracy of the data linked to their projects.</li>
+                <li>The platform facilitates communication with LabTrace for certification, but the user is solely responsible for verifying the correctness of submitted data.</li>
+            </ul>
+
+            <h4>2. Data Integrity and Reproducibility</h4>
+            <ul>
+                <li>All logs submitted to LabTrace must represent the accurate state of the project at the time of submission.</li>
+                <li>IntegriLAB does not claim ownership of your data but may store metadata necessary to provide services.</li>
+                <li>Users must not upload or link data that infringes copyright, violates confidentiality agreements, or breaches institutional or governmental policies.</li>
+            </ul>
+
+            <h4>3. User Responsibilities</h4>
+            <ul>
+                <li>Maintain secure access to your GitHub, Overleaf, and Datalad accounts. IntegriLAB is not liable for breaches arising from third-party services.</li>
+                <li>Ensure project logs and data adhere to ethical standards for research and comply with institutional guidelines.</li>
+                <li>Report any issues, misuse, or breaches immediately to our support team.</li>
+            </ul>
+
+            <h4>4. LabTrace Integration</h4>
+            <ul>
+                <li>LabTrace certifications are final and cannot be altered retrospectively.</li>
+                <li>Certification fees, if any, are processed through LabTrace directly. IntegriLAB does not handle payments.</li>
+            </ul>
+
+            <h4>5. Limitation of Liability</h4>
+            <ul>
+                <li>IntegriLAB is not liable for any data loss or corruption from third-party services or blockchain integration.</li>
+                <li>Our service is provided "as is," without warranties of any kind.</li>
+                <li>Users agree to indemnify and hold IntegriLAB harmless against any claims arising from misuse of the platform.</li>
+            </ul>
+
+            <h4>6. Account Termination</h4>
+            <ul>
+                <li>IntegriLAB reserves the right to terminate accounts that violate these terms or compromise research integrity.</li>
+                <li>Users may request account deletion at any time by contacting support.</li>
+            </ul>
+
+            <h4>7. Amendments to Terms</h4>
+            <ul>
+                <li>IntegriLAB reserves the right to modify these terms at any time. Users will be notified of changes via email or platform announcements.</li>
+                <li>Continued use of the service implies acceptance of revised terms.</li>
+            </ul>
+
+            <p class="mt-4">
+                If you have any questions about these terms, please <a href="/contact-us">contact us</a>.
+            </p>
+
+            <!--<div class="text-center mt-4">
+                <a href="/register/" class="btn btn-primary">Accept and Register</a>
+                <a href="/" class="btn btn-secondary">Decline</a>
+            </div>-->
+        </div>
+
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endblock %}
+
+

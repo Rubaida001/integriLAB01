@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {% endblock %}
+{% block script %}
+{% endblock %}
+{% block maincontent %}
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">User Guide</h1>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary"><a class="text-primary"
+                                                                     href="{% url 'repository:user_guide' %}">User
+                        Guide</a> > Document Repository: Overleaf</h6>
+                </div>
+                <div class="card-body">
+                    <p>This guide will walk you through setting up Overleaf, creating and managing documents,
+                        and integrating them with IntegriLAB for streamlined tracking and updates.</p>
+                    <b>Step 1: Create or Log In to Your Overleaf Account</b>
+
+                    <ul>
+                        <li>
+                            Visit <a class="text-primary" href="https://www.overleaf.com/">Overleaf</a>.
+                        </li>
+                        <li>
+                            If you already have an account, log in using your credentials.
+                        </li>
+                        <li>
+                            If not, click <b>Sign Up</b> to create a new account.
+                        </li>
+                    </ul>
+                    <hr>
+
+
+                    <b>Step 2: Create a New Project on Overleaf</b>
+                    <ul>
+                        <li>
+                            After logging into Overleaf, click on the <b>New Project</b> button.
+                        </li>
+                        <li>
+                            Choose a project type (e.g., Blank Project, Example Templates, or Upload Files).
+                        </li>
+                        <li>
+                            Name your project and begin working on your LaTeX document.
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <b>Step 3: Enable Git Integration</b>
+                    <ul>
+                        <li>
+                            Open your Overleaf project and click on the <b>Menu</b> (three horizontal lines in the
+                            upper-left corner).
+                        </li>
+                        <li>
+                            Scroll down and find the <b>Git</b> option.
+                        </li>
+                        <li>
+                            Generate a <b>Git authentication token</b> and save it securely.
+                        </li>
+                        <li>
+                            Overleaf will also provide a <b>Git URL</b> for your project (e.g.,
+                            https://git@git.overleaf.com/67446a7688c49dc7661cbd8c).
+                        </li>
+                        <li>
+                            You'll use this token and URL to connect with IntegriLAB.
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <b>Step 4: Access the Document Repository in IntegriLAB</b>
+                    <ul>
+                        <li>
+                            Log in to your IntegriLAB account.
+                        </li>
+                        <li>
+                            Navigate to the <b>Documents</b> section from the dashboard.
+                        </li>
+                        <li>
+                            This is where you will manage and monitor Overleaf projects linked to your IntegriLAB
+                            workspace.
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <b>Step 5: Connect IntegriLAB with Overleaf</b>
+                    <ul>
+                        <li>
+                            In IntegriLAB, select <b>Setup Connection</b> option to link your Overleaf account.
+                        </li>
+                        <li>
+                            Enter your Overleaf <b>username</b> and the <b>Git authentication token</b> (created in the
+                            previous step) to authorize the connection.
+                        </li>
+                        <li>
+                            Once connected, your Overleaf projects will become accessible within IntegriLAB.
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <b>Step 6: Add an Overleaf Project to IntegriLAB</b>
+                    <ul>
+                        <li>
+                            In the <b>Documents</b> section in IntegriLAB, click on <b>Add New Repository</b> option.
+                        </li>
+                        <li>
+                            Enter the Overleaf project you want to associate with your current IntegriLAB project.
+                        </li>
+                        <li>
+                            Enter the corresponding <b>Git URL</b> of the project.
+                        </li>
+                        <li>
+                            This will enable you to manage and monitor updates to your Overleaf project directly within
+                            IntegriLAB.
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <b>Step 7: Commit Changes When Updates Are Made</b>
+                    <ul>
+                        <li>
+                            As you work on your Overleaf document, any updates will need to be tracked in IntegriLAB.
+                        </li>
+                        <li>
+                            To save updates:
+                            <ol>
+                                <li>Go to the <b>Documents -> Home</b> section in IntegriLAB.</li>
+                                <li>Select the linked project and the related document to synchronize the latest version
+                                    with IntegriLAB.
+                                </li>
+                            </ol>
+                        </li>
+                        <li> Repeat this step whenever significant updates are made to ensure all changes are
+                            documented.
+                        </li>
+
+                    </ul>
+                    <hr>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+

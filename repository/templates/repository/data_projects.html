@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {% endblock %}
+
+{% block script %}
+    <script src="{% static 'bootstrap/vendor/jquery/jquery.min.js' %}"></script>
+     <script type="text/javascript">
+  $(document).ready(function () {
+    $('#projectSelect').change(function () {
+      var projectID = $(this).val();
+      // Clear the code dropdown
+      $('#datarepoSelect').empty().append('<option value="">Select a repository</option>');
+
+      if (projectID) {
+        $.ajax({
+          url: "{% url 'repository:get_datarepo' %}",
+          data: {
+            'project_id': projectID
+          },
+          success: function (data) {
+            $('#datarepoSelect').prop('disabled', false);
+            $.each(data.datarepo, function (index, data) {
+              $('#datarepoSelect').append('<option value="' + data.data_project_id + '">' + data.data_repo_path + '</option>');
+            });
+          }
+        });
+      } else {
+        $('#datarepoSelect').prop('disabled', true);
+      }
+    });
+  });
+</script>
+{% endblock %}
+{% block maincontent %}
+
+   <!-- <div class="u-container-style u-layout-cell u-size-49 u-layout-cell-2">
+              <div class="u-container-layout u-container-layout-7">
+                <div class="u-container-style u-group u-palette-5-light-3 u-group-1">
+                  <div class="u-container-layout u-container-layout-8">
+                    <h4 class="u-align-center u-text u-text-6">Add New Repository<br>
+                    </h4>
+                      <p class="u-align-center u-small-text u-text u-text-variant u-text-7">Add new scripts in the repository</p>
+                    <div class="u-form u-form-1">
+                      <form method="post" action="{% url 'repository:add_code_repo' %}" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" name="form" style="padding: 10px;">
+                      {% csrf_token %}
+                         <div class="u-form-group u-form-name u-label-none">
+                             <--<input type="text" name="{{ form.project_id.name }}" value="{{ form.project_id.value|default_if_none:'' }}" placeholder="{{ form.project_id.field.widget.attrs.placeholder }}" class="u-input u-input-rectangle form-control u-text-grey-40" />->
+                             <select name="project" id="project">
+                            <option value="">Select a project</option>
+                            {% for project in project_details %}
+                                <option value="{{ project.project_id }}">{{ project.project_name }}</option>
+                            {% endfor %}
+                        </select>
+                        </div>
+                        <div class="u-form-group u-form-name u-label-none u-form-group-2">
+                            <input type="text" name="{{ form.code_repo_name.name }}" value="{{ form.code_repo_name.value|default_if_none:'' }}" placeholder="{{ form.code_repo_name.field.widget.attrs.placeholder }}" class="u-input u-input-rectangle form-control u-text-grey-40" />
+                        </div>
+                        <div class="u-align-center u-form-group u-form-submit u-label-none">
+                          <button type="submit" class="u-border-none u-btn u-btn-submit u-button-style u-palette-1-dark-1 u-btn-3">Add Repository</button>
+                        </div>
+                       -- <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+                        <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+                        <input type="hidden" value="" name="recaptchaResponse">
+                        <input type="hidden" name="formServices" value="455447bb-edba-9a85-804a-d0904c74e284">----
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>-->
+
+
+    <div class="row justify-content-center">
+
+            <div class="col-xl-5 col-lg-6 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Commit To Data Repository</h1>
+                                        <hr>
+                                    </div>
+                                    <form class="user" action="{% url 'repository:process_data_selection' %}" method="post" >
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <select class="form-select form-control" id="projectSelect" name="project">
+                                                <option value="">Select a project</option>
+                                                {% for project in projects %}
+                                                    <option value="{{ project.project_id }}">{{ project.project_name }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="form-group ">
+                                            <select class="form-select form-control" id="datarepoSelect" name="datarepo" disabled>
+                                                <option value="">Select a repository</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-block">Commit</button>
+                                        <hr>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+{% endblock %}
+
+

@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block script %}
+    <!-- Page level plugins -->
+    <script src="{% static 'bootstrap/vendor/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'bootstrap/vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+    <!-- Page level custom scripts -->
+    <script src="{% static 'bootstrap/js/demo/datatables-demo.js' %}"></script>
+    <!-- Custom styles for this page -->
+    <link href="{% static 'bootstrap/vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'repository/css/messages.css' %}"></link>
+
+{% endblock %}
+
+{% block heading %}
+    <h3 class="h3 mb-2 text-gray-800 text-uppercase">{{ project_name }}</h3>
+    <p class="mb-4">List of Recent Updates in Data, Documents, and Code for the Project</p>
+{% endblock %}
+
+
+{% block maincontent %}
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"><a href="{% url 'management:home' %}"> <span class="text-primary">Projects</span></a> > Repository Feed</h6>
+        </div>
+        <div class="card-body">
+            {% if messages %}
+                <div id="message_container" class="u-align-left u-form-group u-form-submit u-label-none">
+                    {% for message in messages %}
+                        <p class="{% if message.tags %}{{ message.tags }}{% endif %}"> {{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Author</th>
+                        <th>Project</th>
+                        <th>Repository</th>
+                        <th>Message</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Date</th>
+                        <th>Author</th>
+                        <th>Project</th>
+                        <th>Repository</th>
+                        <th>Message</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for item in combined_results %}
+                        <tr>
+                            <td>{{ item.committed_date }}</td>
+                            <td>{{ item.committed_by }}</td>
+                            {% if item.object_type == "data" %}
+                                <td>{{ item.data_details_id.project_id }}</td>
+                                <td>Dataset</td>
+                            {% elif item.object_type == "doc" %}
+                                <td>{{ item.doc_details_id.project_id }}</td>
+                                <td>Document</td>
+                            {% else %}
+                                <td>{{ item.code_details_id.project_id }}</td>
+                                <td>Codebase</td>
+                            {% endif %}
+                            <td>{{ item.committed_msg }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="4">No data available.</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+

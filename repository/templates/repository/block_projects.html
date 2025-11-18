@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {% endblock %}
+
+{% block script %}
+    <script src="{% static 'bootstrap/vendor/jquery/jquery.min.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#projectSelect').change(function () {
+                var projectID = $(this).val();
+
+                if (projectID) {
+                    $.ajax({
+                        url: '{% url "repository:load_subcategories" %}',
+                        data: {
+                            'project_id': projectID
+                        },
+                        success: function (data) {
+                            // Show the subcategory dropdowns
+                            $('#subcategory-container').show();
+
+                            // Populate Subcategory 1
+                            $('#datacategory').empty();
+                            $.each(data.datacategory, function (index, item) {
+                                $('#datacategory').append(new Option(item.data_repo_path, item.data_project_id));
+                            });
+
+                            // Populate Subcategory 2
+                            $('#doccategory').empty();
+                            $.each(data.doccategory, function (index, item) {
+                                $('#doccategory').append(new Option(item.document_name, item.doc_project_id));
+                            });
+
+                            // Populate Subcategory 3
+                            $('#codecategory').empty();
+                            $.each(data.codecategory, function (index, item) {
+                                $('#codecategory').append(new Option(item.code_repo_name, item.code_project_id));
+                            });
+                        }
+                    });
+                } else {
+                    $('#subcategory-container').hide();
+                    $('#datacategory').empty();
+                    $('#doccategory').empty();
+                    $('#codecategory').empty();
+                }
+            });
+        });
+    </script>
+{% endblock %}
+{% block maincontent %}
+    <div class="row justify-content-center">
+
+        <div class="col-xl-5 col-lg-6 col-md-9">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Generate Certificate</h1>
+                                    <hr>
+                                </div>
+                                <form class="user" action="{% url 'repository:process_block_selection' %}"
+                                      method="post">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <!-- Main Category Dropdown -->
+                                        <label for="projectSelect">Project:</label>
+                                        <select class="form-select form-control" id="projectSelect" name="project"
+                                                required>
+                                            <option value="">Select a project</option>
+                                            {% for project in projects %}
+                                                <option value="{{ project.project_id }}">{{ project.project_name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- Subcategory Dropdowns -->
+                                        <div id="subcategory-container" style="display: none;">
+                                            <div class="form-group">
+                                                <label for="datacategory">Dataset:</label>
+                                                <select class="form-select form-control" id="datacategory"
+                                                        name="datacategory"></select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="doccategory">Document:</label>
+                                                <select class="form-select form-control" id="doccategory"
+                                                        name="doccategory"></select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="codecategory">Code:</label>
+                                                <select class="form-select form-control" id="codecategory"
+                                                        name="codecategory"></select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="comment">Comment:</label>
+                                                <input type="text" class="form-control" required
+                                                   name="comment"
+                                                   id="comment"
+                                                   placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-block">Create</button>
+                                    <hr>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+

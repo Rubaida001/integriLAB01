@@ -1,0 +1,166 @@
+# Project files and directories
+/Notebook/old_settings.py
+log/*
+/Notebook/settings/development.py
+templates/base_nice.html
+templates/sidebar_nice.html
+staticfiles/*
+labTrace_sdk/labtrace/.DS_Store
+management/__pycache__/admin.cpython-312.pyc
+management/__pycache__/forms.cpython-312.pyc
+management/__pycache__/models.cpython-312.pyc
+management/__pycache__/urls.cpython-312.pyc
+management/__pycache__/views.cpython-312.pyc
+management/static/.DS_Store
+management/static/management/.DS_Store
+management/static/management/images/Integri2.png
+management/static/management/images/interilogo.png
+repository/__pycache__/admin.cpython-312.pyc
+repository/__pycache__/forms.cpython-312.pyc
+repository/__pycache__/getCodeRepoDetails.cpython-312.pyc
+repository/__pycache__/models.cpython-312.pyc
+repository/__pycache__/urls.cpython-312.pyc
+repository/__pycache__/views.cpython-312.pyc
+static/bootstrap/.DS_Store
+# Ignore all migration files
+**/migrations/*.py
+!**/migrations/__init__.py  # Keep the init file
+
+
+# Django # # In migration folder, only keep _init_.py file
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+.DS_Store
+Notebook/.DS_Store
+management/.DS_Store
+repository/.DS_Store
+static/.DS_Store
+labTrace_sdk/.DS_Store
+media/*
+management/static/management/images/interilogo copy.png
+management/migrations/*
+!management/migrations/__init__.py
+repository/migrations/*
+!repository/migrations/__init_.py
+management/__pycache__/*
+repository/__pycache__/*
+# Backup files #
+*.bak
+
+# If you are using PyCharm #
+.idea/Notebook.iml
+.idea/misc.xml
+.idea/workspace.xml
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/gradle.xml
+.idea/**/libraries
+*.iws /out/
+
+# Python #
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery
+celerybeat-schedule.*
+sendgrid account details.png
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+
+# Sublime Text #
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# sftp configuration file
+sftp-config.json
+
+# Package control specific files Package
+Control.last-run
+Control.ca-list
+Control.ca-bundle
+Control.system-ca-bundle
+GitHub.sublime-settings
+
+# Visual Studio Code #
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

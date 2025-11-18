@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% load static %}
+
+ {% block title %} {% endblock %}
+{% block script %}
+{% endblock %}
+{% block maincontent %}
+<!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">User Guide</h1>
+                    </div>
+
+
+                    <div class="row">
+                    <div class="col-lg-6">
+
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Getting Started with IntegriLAB: Project Setup and Certification Steps</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul>
+                                        <li>
+                                            <b>Tools Used:</b> IntegriLAB integrates with GitHub, Overleaf, Datalad, and LabTrace for storing code,
+                                            documents, data, and for certification purposes.
+                                        </li>
+                                        <li>
+                                            <b>Account Setup:</b> To use IntegriLAB, you need to set up your account with each of these systems.
+                                        </li>
+                                        <li>
+                                            <b>Creating Projects:</b> Once accounts are set up, create projects in these repositories to organize project-related tasks.
+                                        </li>
+                                        <li>
+                                            <b>Connecting Repositories:</b> Add these repositories to IntegriLAB to establish a connection with each project.
+                                        </li>
+                                        <li>
+                                            <b>Tracking Commits:</b>
+                                            <ul>
+                                                <li>When there is a new commit in the repository, you can add it to IntegriLAB.</li>
+                                                <li>If multiple commits occur in a single day, IntegriLAB will select only the most recent commit.</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <b>Certification Process:</b>
+                                            <ul>
+                                                <li>Once you are satisfied with the current state of the project, navigate to the “Certification” option.</li>
+                                                <li>Certify the project state using blockchain to ensure it is notarized.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+                                    <!--<a href="#" class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-flag"></i>
+                                        </span>
+                                        <span class="text">Split Button Primary</span>
+                                    </a>
+                                    <div class="my-2"></div>
+                                    <a href="#" class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-check"></i>
+                                        </span>
+                                        <span class="text">Split Button Success</span>
+                                    </a>
+                                    <div class="my-2"></div>
+                                    <a href="#" class="btn btn-info btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-info-circle"></i>
+                                        </span>
+                                        <span class="text">Split Button Info</span>
+                                    </a>
+                                    <div class="my-2"></div>
+                                    <a href="#" class="btn btn-warning btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                        </span>
+                                        <span class="text">Split Button Warning</span>
+                                    </a>
+                                    <div class="my-2"></div>
+                                    <a href="#" class="btn btn-danger btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                        <span class="text">Split Button Danger</span>
+                                    </a>
+                                    <div class="my-2"></div>
+                                    <a href="#" class="btn btn-secondary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </span>
+                                        <span class="text">Split Button Secondary</span>
+                                    </a>
+                                    <div class="my-2"></div>
+                                    <a href="#" class="btn btn-light btn-icon-split">
+                                        <span class="icon text-gray-600">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </span>
+                                        <span class="text">Split Button Light</span>
+                                    </a>
+                                    <div class="mb-4"></div>
+                                    <p>Also works with small and large button classes!</p>
+                                    <a href="#" class="btn btn-primary btn-icon-split btn-sm">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-flag"></i>
+                                        </span>
+                                        <span class="text">Split Button Small</span>
+                                    </a>
+                                    <div class="my-2"></div>
+                                    <a href="#" class="btn btn-primary btn-icon-split btn-lg">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-flag"></i>
+                                        </span>
+                                        <span class="text">Split Button Large</span>
+                                    </a>-->
+                                </div>
+                            </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+                         <!-- Collapsable Card Example -->
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <a href="#collapseOvr" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                    <h6 class="m-0 font-weight-bold text-primary">Document Repository: Overleaf</h6>
+                                </a>
+                                <!-- Card Content - Collapse -->
+                                <div class="collapse show" id="collapseOvr">
+                                    <div class="card-body">
+                                        <!--<div class="text-center">
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                                            src={% static 'images/0fd3416c.jpeg' %} alt="...">
+                                        </div>-->
+                                        <p><a class="text-primary" href="https://www.overleaf.com/">Overleaf</a> is a web-based LaTeX editor designed for creating and collaborating on
+                                        technical and scientific documents. It offers cloud-based storage, version control,
+                                            and real-time collaboration features to streamline document creation and management.</p>
+                                        <a class="text-primary" rel="nofollow" href="{% url 'repository:user_guide_doc' %}">Learn more about setting up the application&rarr;</a>
+
+                                         <!--<ul>
+                                        <li>
+                                            <b>Account Setup:</b> Go to <a href="https://www.overleaf.com/">Overleafe</a> website to setup/login to account.
+                                        </li>
+                                        <li>
+                                            <b>Creating Projects:</b> Once accounts are set up, create a project to organize project-related tasks.
+                                        </li>
+                                        <li>
+                                            <b>Connecting Repositories:</b> Add these repositories to IntegriLAB to establish a connection with each project.
+                                        </li>
+                                         </ul>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Collapsable Card Example -->
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <a href="#collapseLad" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                    <h6 class="m-0 font-weight-bold text-primary">Data Repository: DataLad</h6>
+                                </a>
+                                <!-- Card Content - Collapse -->
+                                <div class="collapse show" id="collapseLad">
+                                    <div class="card-body">
+                                        <p><a class="text-primary" href="https://handbook.datalad.org/en/0.12/index.html">DataLad</a> is a data management and distribution tool that builds on Git and
+                                        Git-annex to provide version control and collaboration for datasets.
+                                        </p>
+
+                                        <a class="text-primary" rel="nofollow" href="{% url 'repository:user_guide_data' %}">Learn more about setting up the application&rarr;</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- Collapsable Card Example -->
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <a href="#collapseGit" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                    <h6 class="m-0 font-weight-bold text-primary">Code Repository: GitHub</h6>
+                                </a>
+                                <!-- Card Content - Collapse -->
+                                <div class="collapse show" id="collapseGit">
+                                    <div class="card-body">
+                                        <p><a class="text-primary" href="https://github.com/">GitHub</a> is a web-based platform designed for version control and collaboration on
+                                            software development projects. It offers developers tools to host, review, and
+                                            share code, promoting teamwork and engagement within teams as well as the broader global software community.
+                                        </p>
+
+                                        <a class="text-primary" rel="nofollow" href="{% url 'repository:user_guide_code' %}">Learn more about setting up the application&rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- Collapsable Card Example -->
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <a href="#collapseLab" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                    <h6 class="m-0 font-weight-bold text-primary">Blockchain Certification: LabTrace</h6>
+                                </a>
+                                <!-- Card Content - Collapse -->
+                                <div class="collapse show" id="collapseLab">
+                                    <div class="card-body">
+                                        <p><a class="text-primary" href="https://labtrace.io/">LabTrace</a> is a blockchain-powered authenticator designed to certify data ownership,
+                                            validate document and idea integrity, and trace or certify any derived (processed) data.
+                                        </p>
+
+                                        <a class="text-primary" rel="nofollow" href="{% url 'repository:user_guide_cert' %}">Learn more about setting up the application&rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                    </div>
+{% endblock %}
+
+

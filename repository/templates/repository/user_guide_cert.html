@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+ {% block title %} {% endblock %}
+{% block script %}
+{% endblock %}
+{% block maincontent %}
+<!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">User Guide</h1>
+                    </div>
+
+
+                    <div class="row">
+                    <div class="col-lg-12">
+
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary"> <a class="text-primary" href="{% url 'repository:user_guide' %}">User Guide</a> > Document Repository: LabTrace</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p>This guide will help you set up LabTrace, create and manage project,
+                                        and integrate it with IntegriLAB to maintain traceability and certification of your project details.
+                                    </p>
+                                    <b>Step 1: Create a LabTrace Account</b>
+
+                                    <ul>
+                                        <li>
+                                            Visit the <a class="text-primary" href="https://app.labtrace.io/sign-in">LabTrace website</a> and click <b> CREATE ACCOUNT</b>.
+                                        </li>
+                                        <li>
+                                            Fill in your details and follow the instructions to set up your account.
+                                        </li>
+                                    </ul>
+                                    <hr>
+
+
+                                    <b>Step 2: Create a New Project </b>
+                                    <ul>
+                                        <li>
+                                            The Principal Investigator (PI) should create a new project within LabTrace.
+                                        </li>
+                                        <li>
+                                            Project members can request access to the project from the PI or the project owner.
+                                        </li>
+                                    </ul>
+                                    <hr>
+
+                                    <b>Step 3: Connect LabTrace to IntegriLAB</b>
+
+                                    <ul>
+                                        <li>
+                                            Open <b>IntegriLAB</b> and navigate to the <b>LabTrace</b> section.
+                                        </li>
+                                        <li>
+                                            Select the <b>Setup Connection</b> option.
+                                        </li>
+                                        <li>
+                                            Add your LabTrace username and password to establish a connection with IntegriLAB.
+                                        </li>
+                                    </ul>
+                                    <hr>
+
+
+
+                                    <b>Step 4: Generate Certificate</b>
+                                    <ul>
+                                        <li>
+                                            To certify the current state of your project, go to <b>LabTrace → Home</b> in IntegriLAB.
+                                        </li>
+                                        <li>
+                                            Click on <b>Commit Changes</b>.
+                                        </li>
+                                        <li>
+                                           Choose the respective project to synchronize the latest version of the associated code, data,
+                                            or document with IntegriLAB, generating a certificate of authenticity and traceability.
+                                        </li>
+                                    </ul>
+                                    Repeat this step whenever significant updates are made to ensure all changes are documented.
+                                    <hr>
+                                </div>
+                            </div>
+
+                    </div>
+                    </div>
+{% endblock %}
+
+

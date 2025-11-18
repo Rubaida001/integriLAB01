@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+ {% block title %} {% endblock %}
+{% block script %}
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const startDateInput = document.querySelector('.start-date');
+    const endDateInput = document.querySelector('.end-date');
+
+    // Function to toggle date type and placeholder
+    function setupDateInput(input, placeholderText) {
+        if (input && input.type !== 'date') {
+            input.addEventListener('focus', function() {
+                this.type = 'date';      // Switch to date type on focus
+                this.placeholder = '';   // Clear placeholder on focus
+            });
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.type = 'text';          // Switch back to text if no date selected
+                    this.placeholder = placeholderText;  // Reapply custom placeholder
+                }
+            });
+        }
+    }
+
+    // Apply function to both date fields
+    setupDateInput(startDateInput, 'Start Date (DD-MM-YYYY)');
+    setupDateInput(endDateInput, 'End Date (DD-MM-YYYY)');
+});
+</script>
+
+{% endblock %}
+{% block maincontent %}
+<div class="row justify-content-center">
+
+            <div class="col-xl-5 col-lg-6 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">New Project</h1>
+                                    </div>
+                                    <form class="user" action="{% url 'management:add_project' %}" method="post" >
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-sm" name="{{ form.project_name.name }}"
+                                                id="exampleInputdoc" value="{{ form.project_name.value|default_if_none:'' }}"
+                                                placeholder="{{ form.project_name.field.widget.attrs.placeholder }}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-sm" name="{{ form.project_description.name }}"
+                                                id="exampleInputdoc" value="{{ form.project_description.value|default_if_none:'' }}"
+                                                placeholder="{{ form.project_description.field.widget.attrs.placeholder }}" required>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="text" name="{{ form.start_date.name }}" value="{{ form.start_date.value|default_if_none:'' }}" placeholder="{{ form.start_date.field.widget.attrs.placeholder }}" class="form-control form-control-sm start-date" required/>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" name="{{ form.end_date.name }}" value="{{ form.end_date.value|default_if_none:'' }}" placeholder="{{ form.end_date.field.widget.attrs.placeholder }}" class="form-control form-control-sm end-date" required/>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-sm" name="{{ form.block_project_id.name }}"
+                                                id="exampleInputdoc" value="{{ form.block_project_id.value|default_if_none:'' }}"
+                                                placeholder="{{ form.block_project_id.field.widget.attrs.placeholder }}" required>
+                                        </div>
+
+                                        <!--<div class="u-form-checkbox u-form-group u-label-none">
+                                            <input type="checkbox" name="{{ form.is_critical.name }}" value="{{ form.is_critical.value|default_if_none:'' }}" class="u-field-label u-text-grey-40" />
+                                            <label class="u-field-label u-text-grey-40 u-text-3">Automated Certification</label>
+                                            {% for error in form.is_critical.errors %}
+                                                <div class="error">{{ error }}</div>
+                                            {% endfor %}
+                                        </div>-->
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck" name="{{ form.is_critical.name }}" value="{{ form.is_critical.value|default_if_none:'' }}">
+                                                <label class="custom-control-label" for="customCheck">Automated Certification</label>
+                                            </div>
+                                            {% for error in form.is_critical.errors %}
+                                                <div class="error">{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">Create Project</button>
+
+                                        <hr>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+{% endblock %}

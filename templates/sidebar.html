@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<title>{% block title %} Add Member {% endblock %}</title>
+{% block script %}
+        <link rel="stylesheet" href="{% static 'management/css/sidebar.css' %}" media="screen">
+{% endblock %}
+
+
+{% block content %}
+     <section class="u-clearfix u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-section-1" id="carousel_9685">
+      <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout" style="">
+          <div class="u-layout-row" style="">
+            <div class="u-container-style u-layout-cell u-palette-5-dark-2 u-size-11 u-layout-cell-1">
+              <div class="u-container-layout u-container-layout-1">
+                <div class="u-list u-list-1">
+                  <div class="u-repeater u-repeater-1">
+                    <div class="u-container-style u-list-item u-palette-5-dark-2 u-repeater-item u-list-item-1">
+                      <div class="u-container-layout u-similar-container u-container-layout-2">
+                        <a href="{% url 'management:home' %}" style="color: #f6f6f6"><p class="u-text u-text-default u-text-1"><span class="u-file-icon u-icon u-icon-1"><img src="{% static 'management/images/1946436-dedc4075.png' %}" alt=""></span> Home
+                        </p></a>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-palette-5-dark-2 u-repeater-item u-list-item-2">
+                      <div class="u-container-layout u-similar-container u-container-layout-3">
+                        <a href="{% url 'repository:home_code_repo' %}" style="color: #f6f6f6"><p class="u-text u-text-default u-text-2"><span class="u-file-icon u-icon u-icon-2"><img src="{% static 'management/images/4926624-e1b588b4.png' %}" alt=""></span> GitHub
+                        </p></a>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-palette-5-dark-2 u-repeater-item u-list-item-3">
+                      <div class="u-container-layout u-similar-container u-container-layout-4">
+                        <a href="{% url 'repository:home_doc_repo' %}" style="color: #f6f6f6"><p class="u-text u-text-default u-text-3 u-sidebar"><span class="u-file-icon u-icon u-icon-3"><img src="{% static 'management/images/5806342-8ca6aa7a.png' %} " alt=""></span> OverLeaf
+                        </p></a>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-palette-5-dark-2 u-repeater-item u-list-item-4">
+                      <div class="u-container-layout u-similar-container u-container-layout-5">
+                        <a href="{% url 'repository:home_data_repo' %}" style="color: #f6f6f6"><p class="u-text u-text-default u-text-4"><span class="u-file-icon u-icon u-text-white"><img src="{% static 'management/images/9850812-b991fa4b.png' %}" alt=""></span> Datalad
+                        </p></a>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-palette-5-dark-2 u-repeater-item u-list-item-5">
+                      <div class="u-container-layout u-similar-container u-container-layout-6">
+                        <a href="{% url 'repository:home_block_repo' %}" style="color: #f6f6f6"><p class="u-text u-text-default u-text-5"><span class="u-file-icon u-icon u-icon-5"><img src="{% static 'management/images/483408-9109b922.png' %}" alt=""></span> LabTrace
+                        </p></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% block maincontent %}
+                {% endblock %}
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

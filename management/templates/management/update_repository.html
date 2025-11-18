@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+ {% block title %} <title>Profile</title> {% endblock %}
+{% block script %}
+{% endblock %}
+{% block maincontent %}
+<div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h4>Update Repository Account</h4>
+                                        <hr>
+                                        <a href="{% url 'management:update_doc_repo' %}" class="btn btn-info btn-block"><i class="fa fa-file-archive fa-fw"></i>
+                                        Document</a>
+                                        <a href="{% url 'management:update_data_repo' %}" class="btn btn-warning btn-block"><i class="fa fa-database fa-fw"></i>
+                                        Dataset</a>
+                                        <a href="{% url 'management:update_code_repo' %}" class="btn btn-primary btn-block"><i class="fa fa-laptop-code fa-fw"></i>
+                                        Codebase</a>
+                                        <a href="{% url 'management:update_cert_repo' %}" class="btn btn-success btn-block"><i class="fa fa-stamp fa-fw"></i>
+                                        Certificate</a>
+                                        <hr>
+                                    </div>
+
+                                <div class="text-center">
+                                      <a href="{% url 'management:home' %}" class="btn btn-secondary btn-circle btn-sm">
+                                            <i class="fas fa-arrow-alt-circle-left"></i>
+                                      </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+{% endblock %}
+
+

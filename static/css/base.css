@@ -1,0 +1,27 @@
+.btn-primary{
+        background-color: #005A9C !important;
+        border: none;
+        }
+    .bg-gradient-sidebar{
+        background-color: #72A0C1 !important;
+    }
+    .dropdown-header{
+        color: #f6f6f6 !important;
+        background-color: #002D62 !important;
+    }
+    .text-primary{
+        color: #6699CC !important;
+    }
+    #topbar-icon{
+        color: grey !important;
+    }
+    .btn-secondary{
+        color: white !important;
+        background-color:  #B9D9EB!important;
+        border: none;
+    }
+.u-form-send-error{
+    text-align:center;
+    font-size: small;
+    background-color: #005A9C !important;
+}

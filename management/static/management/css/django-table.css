@@ -1,0 +1,5 @@
+.table thead th {
+    background-color: #4d4d4d;  /* Light gray background color */
+    color: whitesmoke;  /* Text color */
+    font-weight: bold;  /* Optional: Make the text bold */
+}

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block script %}
+    <link rel="stylesheet" href="{% static 'repository/css/messages.css' %}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //$("#dataTable").DataTable(); // Initialize DataTable
+            $(".read-more").click(function (e) {
+                e.preventDefault();
+        var $this = $(this);
+        var $td = $this.closest("td"); // Ensure we get the correct parent <td>
+
+        // Toggle text visibility within the correct td
+        $td.find(".short-text").toggle();
+        $td.find(".full-text").toggle();
+
+        // Change button text accordingly
+        if ($this.text() === "Read More") {
+            $this.text("Read Less");
+        } else {
+            $this.text("Read More");
+        }
+            });
+        });
+    </script>
+
+{% endblock %}
+
+{% block heading %}
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">LabTrace Feed</h1>
+        <a href="{% url 'repository:get_projects' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-stamp fa-sm text-white-50"></i> Certificate</a>
+    </div>
+{% endblock %}
+
+
+{% block maincontent %}
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Repository Feed</h6>
+        </div>
+
+        <div class="card-body">
+            {% if messages %}
+                <div id="message_container" class="u-align-left u-form-group u-form-submit u-label-none">
+                    {% for message in messages %}
+                        <p class="{% if message.tags %}{{ message.tags }}{% endif %}"> {{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Author</th>
+                        <th>Date</th>
+                        <th>Project</th>
+                        <th>Comment</th>
+                        <th>Tag</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Author</th>
+                        <th>Date</th>
+                        <th>Project</th>
+                        <th>Comment</th>
+                        <th>Tag</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for repo in repo_details %}
+                        <tr>
+                            <td>{{ repo.block_details_id.notebook_user_id }}</td>
+                            <td>{{ repo.committed_date }}</td>
+                            <td>{{ repo.project }}</td>
+                            <td><span class="short-text">{{ repo.comment|truncatechars:40 }}</span>
+                                <span class="full-text" style="display: none;">{{ repo.comment }}</span>
+                                {% if repo.comment|length > 40 %}
+                                    <a class="text-primary read-more" href="#">Read More</a>
+                                {% endif %}</td>
+                            <td>
+                                <a class="text-primary"
+                                   href="{% url 'repository:download_certificate' repo.project.project_name repo.block_hash %}"> {{ repo.block_hash }} </a>
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="4">No data available.</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+

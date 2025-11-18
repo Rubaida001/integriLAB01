@@ -1,0 +1,175 @@
+{% extends 'base_login.html' %}
+{% load static %}
+
+{% block script %}
+    <link rel="stylesheet" href="{% static 'management/css/login_n.css' %}" media="screen">
+{% endblock %}
+
+{% block logincontent %}
+    <section class="u-clearfix u-grey-10 u-section-2" id="sec-eed8">
+        <div class="custom-expanded u-container-style u-group u-palette-1-dark-1 u-preserve-proportions u-shape-rectangle u-group-1">
+            <div class="u-container-layout u-container-layout-1">
+                <div class="u-align-center u-border-20 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-dark-1 u-container-align-center u-container-style u-group u-radius u-shape-round u-white u-group-2">
+                    <div class="u-container-layout u-container-layout-2">
+                        <h2 class="u-text u-text-default-md u-text-default-sm u-text-default-xs u-text-palette-1-dark-1 u-text-1">
+                            <span style="font-size: 2.5rem;">Welcome to IntegriLAB</span>
+                        </h2><small class="mb-4 u-text-grey-40">Collaborative Ledger for Ethical and Accurate
+                        Research</small>
+
+                        <div class="u-form u-form-1">
+                            <form class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" name="form"
+                                  style="padding: 10px;" method="post" action="{% url 'management:login' %}">
+                                {% csrf_token %}
+                                <div class="u-form-group u-form-name">
+                                    <label for="email" class="u-label u-text-grey-25 u-label-1">EMAIL</label>
+                                    <input type="email" placeholder="Enter your Email" id="email" name="email"
+                                           class="u-grey-10 u-input u-input-rectangle" required="" value="{{ email }}">
+                                </div>
+                                <div class="u-form-email u-form-group">
+                                    <label for="password" class="u-label u-text-grey-25 u-label-2">PASSWORD</label>
+                                    <input type="password" placeholder="Enter your password" id="password"
+                                           name="password" class="u-grey-10 u-input u-input-rectangle" required=""
+                                           value="{{ password }}">
+                                </div>
+                                <div class="u-form-agree u-form-group u-form-group-3">
+                                    <label class="u-block-25f1-15 u-field-label u-text-grey-25"
+                                           style="font-size: 0.875rem"></label>
+                                    <input type="checkbox" id="remember_me" name="remember_me"
+                                           class="u-agree-checkbox u-field-input">
+                                    <label for="agree-6b8e" class="u-agree-label u-field-label u-text-grey-25"
+                                           style="font-size: 0.875rem;">REMEMBER ME</label>
+                                </div>
+                                <div class="u-align-left u-form-group u-form-submit">
+                                    <button type="submit"
+                                            class="u-border-none u-btn u-btn-submit u-button-style u-palette-1-dark-1 u-btn-1">
+                                        Login
+                                    </button>
+                                </div>
+                            </form>
+                            <div class="u-form-group u-form-name u-label-none">
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <p class="u-form-send-message u-form-send-error u-align-center">{{ message }}</p>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <a href="{% url 'management:password_reset' %}"
+                           class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-btn u-button-style u-none u-text-palette-1-base u-btn-2">Forgot
+                            password?<br>
+                        </a>
+                        <a href="{% url 'management:registration' %}"
+                           class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-btn u-button-style u-none u-text-palette-1-base u-btn-3">Don't
+                            have an account?<br>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+<!--
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'management/css/nicepage.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'management/css/login_n.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'management/js/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'management/js/nicepage.js' %}" defer=""></script>
+    <meta name="generator" content="Nicepage 6.20.0, nicepage.com">
+    <meta name="referrer" content="origin">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+
+
+
+
+
+
+
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "WebSite6279795",
+		"logo": "images/verilab-light.png"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Home">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en">
+  <header class="u-clearfix u-header u-header" id="sec-5989" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><div class="u-clearfix u-sheet u-sheet-1">
+        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-spacing-2 u-unstyled u-nav-1">
+                <li class="u-nav-item"><a class="u-active-palette-1-light-3 u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-hover-grey-90" style="padding: 10px 20px;" href="{% url 'management:login' %}">Log In</a></li>
+                <li class="u-nav-item"><a class="u-active-palette-1-light-3 u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-hover-grey-90" style="padding: 10px 20px;" href="{% url 'management:registration' %}" >Sign Up</a></li>
+            </ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4">
+                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'management:login' %}">Log In</a></li>
+                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'management:registration' %}">Sign Up</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+        <a href="#" class="u-image u-logo u-image-1" data-image-width="353" data-image-height="129">
+          <img src="{% static 'management/images/verilab-light.png' %}" class="u-logo-image u-logo-image-1">
+        </a>
+      </div></header>-->
+
+
+<!-- <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0bd2"><div class="u-clearfix u-sheet u-sheet-1">
+     <p class="u-small-text u-text u-text-variant u-text-1">E-LabNoteBook || 2024</p>
+   </div></footer>
+
+</body></html>-->
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form method="POST" action="{% url 'management:login' %}">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
+        <br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>-->

@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>GitHub</title>
+    <link rel="stylesheet" href="{% static 'users/css/nicepage.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'users/css/github.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'users/js/jquery-1.9.1.min.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static nicepage.js %}" defer=""></script>
+    <meta name="generator" content="Nicepage 6.11.13, nicepage.com">
+    <meta name="referrer" content="origin">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "WebSite6279795"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="About">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-palette-5-dark-2" id="sec-5989" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><div class="u-clearfix u-sheet u-valign-middle-xl u-sheet-1">
+        <a href="#" class="u-image u-logo u-image-1" data-image-width="80" data-image-height="40">
+          <img src="{% static 'users/images/default-logo.png' %}" class="u-logo-image u-logo-image-1">
+        </a>
+        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 500;">
+            <a class="u-button-style u-custom-active-color u-custom-border u-custom-border-color u-custom-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-spacing-2 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-active-palette-1-light-3 u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-hover-grey-90 u-text-white" style="padding: 10px 20px;" href="{% url 'users:member' %}">Member</a>
+</li><li class="u-nav-item"><a class="u-active-palette-1-light-3 u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-hover-grey-90 u-text-white" href="{% url 'users:project' %}" style="padding: 10px 20px;">Project</a><!--<div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-2"><li class="u-nav-item"><a class="u-active-palette-5-light-1 u-button-style u-hover-palette-5-light-3 u-nav-link u-palette-5-light-2 u-text-active-grey-25">Logout</a>
+</li></ul>
+</div>-->
+</li><!--<li class="u-nav-item"><a class="u-active-palette-1-light-3 u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-hover-grey-90 u-text-white" style="padding: 10px 20px;">Contact</a>
+</li>--><li class="u-nav-item"><a class="u-active-palette-1-light-3 u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-hover-grey-90 u-text-white" style="padding: 10px 20px;">Username</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-3"><li class="u-nav-item"><a class="u-active-palette-5-light-1 u-button-style u-hover-palette-5-light-3 u-nav-link u-palette-5-light-2 u-text-active-grey-25">Logout</a>
+</li></ul>
+</div>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'users:member' %}">Member</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'users:project' %}">Project</a><!--<div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-5"><li class="u-nav-item"><a class="u-button-style u-nav-link">Logout</a>
+</li></ul>
+</div>-->
+</li><!--<li class="u-nav-item"><a class="u-button-style u-nav-link">Contact</a>
+</li>--><li class="u-nav-item"><a class="u-button-style u-nav-link">Sign Up</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-6"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'users:login' %}">Logout</a>
+</li></ul>
+</div>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+   <section class="u-clearfix u-section-7" id="carousel_d0e7">
+      <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div class="u-container-style u-layout-cell u-palette-5-dark-2 u-size-11 u-layout-cell-1">
+              <div class="u-container-layout u-container-layout-1">
+                <div class="u-expanded-width u-list u-list-1">
+                  <div class="u-repeater u-repeater-1">
+                    <div class="u-container-style u-list-item u-repeater-item u-shape-rectangle u-list-item-1">
+                      <div class="u-container-layout u-similar-container u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-2">
+                        <p class="u-custom-item u-text u-text-default-xl u-text-1"><span class="u-file-icon u-icon u-icon-1"><img src="{% static 'users/images/1946436-dedc4075.png'%}" alt=""></span> Home
+                        </p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-palette-5-dark-1 u-repeater-item u-shape-rectangle u-list-item-2">
+                      <div class="u-container-layout u-similar-container u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-3">
+                        <p class="u-custom-item u-text u-text-default-xl u-text-2"><span class="u-file-icon u-icon u-icon-2"><img src="{% static 'users/images/4926624-e1b588b4.png'%}" alt=""></span> GitHub
+                        </p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item  u-repeater-item u-shape-rectangle u-list-item-3">
+                      <div class="u-container-layout u-similar-container u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-4">
+                        <p class="u-custom-item u-text u-text-default-xl u-text-3"><span class="u-file-icon u-icon u-icon-3"><img src="{% static 'users/images/5806342-8ca6aa7a.png' %}" alt=""></span> OverLeaf
+                        </p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item u-shape-rectangle u-list-item-4">
+                      <div class="u-container-layout u-similar-container u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-5">
+                        <p class="u-custom-item u-text u-text-default-xl u-text-4"><span class="u-file-icon u-icon u-text-white"><img src="{% static 'users/images/9850812-b991fa4b.png' %}" alt=""></span> Datalad
+                        </p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item u-shape-rectangle u-list-item-5">
+                      <div class="u-container-layout u-similar-container u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-6">
+                        <p class="u-custom-item u-text u-text-default-xl u-text-5"><span class="u-file-icon u-icon u-icon-5"><img src="{% static 'users/images/483408-9109b922.png' %}" alt=""></span> LabTrace
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="u-align-center u-container-style u-layout-cell u-shape-rectangle u-size-49 u-layout-cell-2">
+              <div class="u-container-layout u-container-layout-7">
+                <h3 class="u-text u-text-6">GitHub Feed<span style="font-weight: 700;"></span>&nbsp;
+                </h3>
+                <div class="u-expanded-width-xs u-list u-list-2">
+                  <div class="u-repeater u-repeater-2">
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-valign-top-xl u-container-layout-8"><span class="u-file-icon u-icon u-icon-circle u-palette-3-light-2 u-icon-6"><img src="{% static 'users/images/4926624-89fd50f9.png' %}" alt=""></span>
+                        <h5 class="u-text u-text-7">Project1 | 24 April 2024, 1 pm&nbsp;&nbsp;</h5>
+                          <p class="u-text u-text-8"><a href="https://github.com/molecular-neuroimaging/FDOPA_Data_Conversion/blob/main/Conversion/conversion_IMANET02.py">User1 changed image dimension in preProcessing.py </a></p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-valign-top-xl u-container-layout-9"><span class="u-file-icon u-icon u-icon-circle u-palette-3-light-2 u-icon-7"><img src="{% static 'users/images/4926624-89fd50f9.png' %}" alt=""></span>
+                        <h5 class="u-text u-text-9">Project2 | Headline</h5>
+                          <p class="u-text u-text-10"><a href="https://github.com/molecular-neuroimaging/FDOPA_Data_Conversion/blob/main/Conversion/conversion_IMANET02.py">User 2 harmonized image with HACA3</a></p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-valign-top-xl u-container-layout-10"><span class="u-file-icon u-icon u-icon-circle u-palette-3-light-2 u-icon-8"><img src="{% static 'users/images/4926624-89fd50f9.png' %}" alt=""></span>
+                        <h5 class="u-text u-text-11">Project2 | Headline</h5>
+                          <p class="u-text u-text-12"><a href="https://github.com/molecular-neuroimaging/FDOPA_Data_Conversion/blob/main/Conversion/conversion_IMANET02.py">User1 added new configuration file</a></p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-valign-top-xl u-container-layout-11"><span class="u-file-icon u-icon u-icon-circle u-palette-3-light-2 u-icon-9"><img src="{% static 'users/images/4926624-89fd50f9.png' %}" alt=""></span>
+                        <h5 class="u-text u-text-13">Project3 | Headline</h5>
+                          <p class="u-text u-text-14"><a href="https://github.com/molecular-neuroimaging/FDOPA_Data_Conversion/blob/main/Conversion/conversion_IMANET02.py">User1 added new configuration file</a></p>
+                      </div>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-valign-top-xl u-container-layout-12"><span class="u-file-icon u-icon u-icon-circle u-palette-3-light-2 u-icon-10"><img src="{% static 'users/images/4926624-89fd50f9.png' %}" alt=""></span>
+                        <h5 class="u-text u-text-15">Sample Headline</h5>
+                          <p class="u-text u-text-16"><a href="https://github.com/molecular-neuroimaging/FDOPA_Data_Conversion/blob/main/Conversion/conversion_IMANET02.py">User1 added new configuration file</a>on </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-palette-5-dark-2 u-footer" id="sec-0bd2"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">E-LabNoteBook || 2024</p>
+      </div></footer>
+  
+</body></html>
