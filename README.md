@@ -85,9 +85,9 @@ python manage.py migrate
 python manage.py runserver
 
 ## Notes on the Public Version
-This repository is intended for **scientific review, demonstration, and reproducibility documentation**.
+This repository is intended for scientific review, demonstration, and reproducibility documentation.
 The complete production system including infrastructure configuration,
 deployments, user data, and institutional settings—remains private.
 
 For inquiries or to request extended access, please contact:
-\texttt{rubaida.easmin@kcl.ac.uk}
+**rubaida.easmin@kcl.ac.uk**
