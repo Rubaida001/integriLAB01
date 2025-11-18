@@ -1,6 +1,7 @@
 # Ignore static files in language stats
 static/* linguist-vendored
 media/* linguist-vendored
+*.css linguist-documentation
 
 # Templates are HTML, not Python
 templates/* linguist-detectable=true
