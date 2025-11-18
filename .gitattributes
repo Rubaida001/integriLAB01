@@ -2,7 +2,7 @@
 static/css/* linguist-vendored
 media/* linguist-vendored
 *.css linguist-vendored
-
+*.html linguist-vendored
 # Templates are HTML, not Python
 templates/* linguist-detectable=true
 
