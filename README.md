@@ -1,4 +1,4 @@
-# \textbf{IntegriLAB: A Research Integrity \& Collaboration Platform}
+#IntegriLAB: A Research Integrity \& Collaboration Platform
 
 IntegriLAB is a web-based system designed to promote 
 \textbf{transparency, reproducibility, and accountability} 
