@@ -43,7 +43,7 @@ have been removed.
 | **Layer** | **Technologies** |
 |---------------|------------------------|
 | Frontend | Bootstrap, JavaScript |
-| Backend | Django (Python) |
+| Backend | Django (Python) 5.1 |
 | Database | PostgreSQL |
 | Deployment | AWS Elastic Beanstalk |
 | Versioning \& CI | GitHub |
@@ -92,3 +92,4 @@ deployments, user data, and institutional settings—remains private.
 
 For inquiries or to request extended access, please contact:
 **rubaida.easmin@kcl.ac.uk**
+
